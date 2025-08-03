@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hon. Justice Mairo Laraba Mohammed | Legacy of Justice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --judicial-purple: #4A235A;
+            --wisdom-gold: #D4AC0D;
+            --integrity-blue: #1A5276;
+            --compassion-rose: #C39BD3;
+            --legacy-cream: #F9F6F0;
+            --deep-plum: #2C0A3A;
+            --transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--legacy-cream);
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Hero Section - Grand Entrance */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(74, 35, 90, 0.95), rgba(44, 10, 58, 0.95)), 
+                        url('./imgs/AI.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 60%, rgba(44, 10, 58, 0.9) 100%);
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.2;
+            color: var(--wisdom-gold);
+            font-size: 3rem;
+            z-index: 5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            max-width: 900px;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 5.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            line-height: 1.1;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .hero-subtitle {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: var(--wisdom-gold);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .hero-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border-left: 3px solid var(--wisdom-gold);
+            background: rgba(0,0,0,0.2);
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .hero-quote::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            right: 30px;
+            font-size: 8rem;
+            color: rgba(212, 172, 13, 0.15);
+            font-family: serif;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: var(--wisdom-gold);
+            z-index: 30;
+            animation: bounce 3s infinite;
+        }
+        
+        /* Section Styling */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 8rem;
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        
+        .section-title {
+            font-size: 4.5rem;
+            color: var(--deep-plum);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--wisdom-gold);
+        }
+        
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--integrity-blue);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+        
+        /* Golden Divider */
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--wisdom-gold), transparent);
+            margin: 5rem auto;
+            width: 70%;
+            transform: scaleX(0);
+            transform-origin: center;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 0 2rem;
+        }
+        
+        .judge-portrait {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            height: 600px;
+           background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+            url('./imgs/AI.jpg') top center / cover no-repeat;
+
+            transform: translateY(50px) scale(0.9);
+            opacity: 0;
+        }
+        
+        .judge-portrait::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--wisdom-gold);
+            z-index: 10;
+        }
+        
+        .judge-details {
+            padding: 2rem;
+            background: rgba(249, 246, 240, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .detail-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-left: 70px;
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+        
+        .detail-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--judicial-purple);
+            color: var(--wisdom-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        
+        .detail-content h3 {
+            color: var(--judicial-purple);
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .detail-content p {
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            background: linear-gradient(rgba(249, 246, 240, 0.9), rgba(249, 246, 240, 0.9)), 
+                        url('./imgs/nysc.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        .timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--wisdom-gold);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            width: 50%;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 4rem;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 4rem;
+        }
+        
+        .timeline-content {
+            padding: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            transition: var(--transition);
+            border-bottom: 4px solid var(--judicial-purple);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--judicial-purple);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .timeline-year::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--wisdom-gold);
+        }
+        
+        .timeline-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--integrity-blue);
+        }
+        
+        /* Family Tribute */
+        .tribute-section {
+            background: linear-gradient(rgba(74, 35, 90, 0.95), rgba(44, 10, 58, 0.95)), 
+                        url('./imgs/nysc.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tribute-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .tribute-card {
+            background: rgba(249, 246, 240, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 5rem;
+            border: 1px solid rgba(212, 172, 13, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            transform: translateY(50px) scale(0.95);
+            opacity: 0;
+        }
+        
+        .tribute-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .tribute-header h2 {
+            font-size: 3.5rem;
+            color: var(--wisdom-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .tribute-content {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .tribute-content p {
+            margin-bottom: 2rem;
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            text-align: center;
+            color: var(--wisdom-gold);
+            margin-top: 3rem;
+            font-style: italic;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 8rem 0;
+            background: var(--legacy-cream);
+        }
+        
+        .gallery-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .gallery-item {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: scale(0.95);
+            opacity: 0;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(74, 35, 90, 0.9), transparent);
+            color: white;
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Legacy Section */
+        .legacy-section {
+            padding: 10rem 0;
+            background: linear-gradient(135deg, var(--integrity-blue), var(--deep-plum));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .legacy-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4ac0d' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        .legacy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .legacy-title {
+            font-size: 4.5rem;
+            color: var(--wisdom-gold);
+            margin-bottom: 3rem;
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        
+        .legacy-statement {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin-bottom: 4rem;
+            font-weight: 300;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        
+        .legacy-quote {
+            font-size: 2.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem;
+            border-top: 2px solid var(--wisdom-gold);
+            border-bottom: 2px solid var(--wisdom-gold);
+            line-height: 1.6;
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--deep-plum);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .footer-logo {
+            font-size: 4rem;
+            color: var(--wisdom-gold);
+            margin-bottom: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .footer-quote {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            font-style: italic;
+            color: var(--compassion-rose);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: var(--transition);
+            color: var(--wisdom-gold);
+            transform: scale(0);
+        }
+        
+        .social-icon:hover {
+            background: var(--wisdom-gold);
+            color: var(--deep-plum);
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Floating elements */
+        .floating-element {
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+            }
+            
+            .judge-portrait {
+                height: 500px;
+            }
+            
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding: 2rem 0 2rem 80px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.7rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .tribute-card {
+                padding: 3rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legacy-title {
+                font-size: 3.5rem;
+            }
+            
+            .legacy-statement {
+                font-size: 1.5rem;
+            }
+            
+            .legacy-quote {
+                font-size: 1.8rem;
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .detail-item {
+                padding-left: 60px;
+            }
+            
+            .tribute-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Floating decorative elements -->
+        <div class="floating-element" style="top:10%; left:10%;"><i class="fas fa-scale-balanced"></i></div>
+        <div class="floating-element" style="top:20%; right:15%;"><i class="fas fa-book"></i></div>
+        <div class="floating-element" style="bottom:30%; left:20%;"><i class="fas fa-gavel"></i></div>
+        <div class="floating-element" style="bottom:20%; right:20%;"><i class="fas fa-feather"></i></div>
+        <div class="floating-element" style="top:40%; left:5%;"><i class="fas fa-star"></i></div>
+        <div class="floating-element" style="top:30%; right:5%;"><i class="fas fa-crown"></i></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Hon. Justice Mairo Laraba Mohammed</h1>
+            <p class="hero-subtitle">Guardian of Justice • Pillar of Wisdom • Matriarch of Integrity</p>
+            <p class="hero-quote">"In the courtroom of life, she balances the scales with grace, wisdom, and unwavering moral clarity"</p>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="section-header">
+            <h2 class="section-title">A Judicial Luminary</h2>
+            <p class="section-subtitle">Serving truth and justice with unwavering dedication</p>
+        </div>
+        
+        <div class="gold-divider" id="divider1"></div>
+        
+        <div class="profile-container">
+            <div class="judge-portrait" id="portrait"></div>
+            <div class="judge-details" id="details">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Judicial Philosophy</h3>
+                        <p>Justice Mohammed believes in a balanced approach to law, where the letter of the law meets the spirit of justice. Her rulings reflect deep understanding of both legal principles and human circumstances.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Court Leadership</h3>
+                        <p>Presiding in the historic Zaria Judicial Division, Justice Mohammed oversees cases at both the GRA Zaria and Dogarawa court locations, bringing wisdom and fairness to every proceeding.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Oath of Allegiance</h3>
+                        <p>Honored to administer the oath at NYSC ceremonies on behalf of the Chief Judge, symbolizing her role in guiding Nigeria's youth toward national service and integrity.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Legal Scholarship</h3>
+                        <p>With decades of experience, Justice Mohammed has contributed significantly to Nigerian jurisprudence, particularly in civil law, family law, and constitutional matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gold-divider" id="divider2"></div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-header">
+            <h2 class="section-title">Journey of Justice</h2>
+            <p class="section-subtitle">A distinguished path of service and wisdom</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">Early Career</div>
+                    <h3 class="timeline-title">Foundations of Law</h3>
+                    <p>Justice Mohammed began her legal journey with exceptional academic achievements, graduating with honors from law school and distinguishing herself in early legal practice.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">Judicial Appointment</div>
+                    <h3 class="timeline-title">Ascending the Bench</h3>
+                    <p>Recognized for her exceptional legal acumen and integrity, Justice Mohammed was appointed to the Kaduna State High Court, beginning her distinguished judicial career.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">Zaria Division</div>
+                    <h3 class="timeline-title">Serving the Historic City</h3>
+                    <p>Assigned to the Zaria Judicial Division, Justice Mohammed has presided over cases at the GRA Zaria and Dogarawa court locations, becoming a respected figure in the community.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">NYSC Ceremonies</div>
+                    <h3 class="timeline-title">Guiding National Service</h3>
+                    <p>Honored with administering the oath of allegiance at NYSC ceremonies, Justice Mohammed plays a vital role in initiating Nigeria's youth into national service.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">Present Day</div>
+                    <h3 class="timeline-title">Continuing Legacy</h3>
+                    <p>Today, Justice Mohammed continues to serve with distinction, balancing her judicial responsibilities with mentorship and community engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Tribute Section -->
+    <section class="tribute-section">
+        <div class="tribute-container">
+            <div class="tribute-card" id="tributeCard">
+                <div class="tribute-header">
+                    <h2>To Our Matriarch of Justice</h2>
+                    <p>A Message from Your Loving Family</p>
+                </div>
+                <div class="tribute-content">
+                    <p>Dearest Mother and Wife,</p>
+                    
+                    <p>Your life has been a masterclass in balancing strength with compassion, authority with humility, and wisdom with grace. As you preside over your courtroom, we see not just a judge, but a guardian of truth who approaches each case with the care of a mother and the wisdom of a sage.</p>
+                    
+                    <p>Your hands that sign judicial orders are the same hands that comforted scraped knees, prepared family meals, and guided us through life's challenges. The same intellect that dissects complex legal arguments taught us our first lessons in integrity and fairness.</p>
+                    
+                    <p>We've watched with pride as you've shaped the Kaduna judiciary, bringing not just legal expertise but profound humanity to the bench. Your commitment to justice has inspired each of us to pursue excellence in our own fields, always remembering the values you instilled in us.</p>
+                    
+                    <p>To your grandchildren, you are "Grandma Justice" - a living symbol that fairness matters, that truth prevails, and that women can shape the world from any position. Your legacy is already taking root in the next generation as they learn from your example.</p>
+                    
+                    <p>As you continue your distinguished service, know that your greatest courtroom isn't made of wood and law books, but of the lives you've touched - in our family, in your community, and across the judiciary. Your wisdom echoes through generations, your compassion transforms lives, and your integrity sets a standard we all strive to meet.</p>
+                </div>
+                <p class="signature">With Eternal Love and Admiration,<br>Your Family</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <h2 class="section-title">Moments of Impact</h2>
+            <p class="section-subtitle">A life of service through the years</p>
+        </div>
+        
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Administering Oath at NYSC</h3>
+                        <p>Guiding Nigeria's youth into national service</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Presiding Over Court</h3>
+                        <p>Bringing wisdom to judicial proceedings</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./imgs/justin_standing.jpg') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Legal Education</h3>
+                        <p>Mentoring the next generation of legal minds</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./imgs/nysc.jpg') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Community Engagement</h3>
+                        <p>Connecting with the people of Zaria</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./imgs/justis_seating.jpg') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>With Judicial Colleagues</h3>
+                        <p>Collaborating for justice</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./imgs/DADD\ AWARD.jpg') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Family Moments</h3>
+                        <p>Cherished times with loved ones</p>
+                    </div>
+                </div>
+
+                 <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./imgs/capt.\ ai\ 70.jpg') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Family Moments</h3>
+                        <p>Cherished times with loved ones</p>
+                    </div>
+                </div>
+
+                 <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./imgs/daddy\ alone\ in\ plain.jpg') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Family Moments</h3>
+                        <p>Cherished times with loved ones</p>
+                    </div>
+                </div>
+
+
+                 <div class="gallery-item">
+                    <div class="gallery-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./imgs/buld\ to\ last.jpg') center/cover;"></div>
+                    <div class="gallery-caption">
+                        <h3>Family Moments</h3>
+                        <p>Cherished times with loved ones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Section -->
+    <section class="legacy-section">
+        <div class="legacy-content">
+            <h2 class="legacy-title">An Eternal Legacy</h2>
+            <p class="legacy-statement">Hon. Justice Mairo Laraba Mohammed's impact transcends courtrooms and legal documents. Her legacy is woven into the lives she has touched - the young lawyers she has mentored, the families she has guided to resolution, the community she has served with integrity, and the generations she has inspired through her unwavering commitment to justice.</p>
+            
+            <p class="legacy-quote">"True justice is not found in the letter of the law alone, but in the spirit of compassion that guides its application."</p>
+            
+            <p class="legacy-statement">As her wisdom continues to shape the Nigerian judiciary and her example inspires future generations, Justice Mohammed's legacy stands as a beacon of integrity, a monument to wisdom, and a testament to the power of principled leadership. This digital tribute is but a reflection of the profound impact that will echo through time, inspiring justice-seekers for generations to come.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-scale-balanced"></i>
+            </div>
+            <h3>Hon. Justice Mairo Laraba Mohammed</h3>
+            <p class="footer-quote">"In her hands, justice became not just a profession, but a sacred calling"</p>
+            
+            <div class="footer-links">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <p class="copyright">© 2023 Legacy of Justice • Created with Honor by Family</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize GSAP animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Hero elements animation
+            gsap.to('.hero-title', {
+                duration: 1.5,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out',
+                delay: 0.3
+            });
+            
+            gsap.to('.hero-subtitle', {
+                duration: 1.5,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out',
+                delay: 0.6
+            });
+            
+            gsap.to('.hero-quote', {
+                duration: 1.5,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out',
+                delay: 0.9
+            });
+            
+            // Floating elements animation
+            gsap.utils.toArray('.floating-element').forEach((el, i) => {
+                gsap.to(el, {
+                    duration: 15,
+                    rotation: 360,
+                    repeat: -1,
+                    ease: 'none'
+                });
+            });
+            
+            // Section header animations
+            gsap.utils.toArray('.section-header').forEach((header, i) => {
+                gsap.to(header, {
+                    scrollTrigger: {
+                        trigger: header,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    duration: 1,
+                    y: 0,
+                    opacity: 1,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Divider animations
+            gsap.to('.gold-divider', {
+                scrollTrigger: {
+                    trigger: '.gold-divider',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1.5,
+                scaleX: 1,
+                ease: 'power3.out'
+            });
+            
+            // Profile section animation
+            gsap.to('#portrait', {
+                scrollTrigger: {
+                    trigger: '#portrait',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1.5,
+                y: 0,
+                scale: 1,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.to('#details', {
+                scrollTrigger: {
+                    trigger: '#details',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1.5,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            // Detail items animation
+            gsap.utils.toArray('.detail-item').forEach((item, i) => {
+                gsap.to(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    duration: 1,
+                    x: 0,
+                    opacity: 1,
+                    delay: i * 0.2,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Timeline items animation
+            gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+                gsap.to(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    duration: 1,
+                    y: 0,
+                    opacity: 1,
+                    delay: i * 0.2,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Tribute card animation
+            gsap.to('#tributeCard', {
+                scrollTrigger: {
+                    trigger: '#tributeCard',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1.5,
+                y: 0,
+                scale: 1,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            // Tribute content animations
+            gsap.to('.tribute-header', {
+                scrollTrigger: {
+                    trigger: '.tribute-header',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.utils.toArray('.tribute-content p').forEach((p, i) => {
+                gsap.to(p, {
+                    scrollTrigger: {
+                        trigger: p,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    duration: 1,
+                    y: 0,
+                    opacity: 1,
+                    delay: i * 0.2,
+                    ease: 'power3.out'
+                });
+            });
+            
+            gsap.to('.signature', {
+                scrollTrigger: {
+                    trigger: '.signature',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            // Gallery items animation
+            gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+                gsap.to(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    duration: 1,
+                    scale: 1,
+                    opacity: 1,
+                    delay: i * 0.2,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Legacy section animations
+            gsap.to('.legacy-title', {
+                scrollTrigger: {
+                    trigger: '.legacy-title',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.utils.toArray('.legacy-statement').forEach((p, i) => {
+                gsap.to(p, {
+                    scrollTrigger: {
+                        trigger: p,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    duration: 1,
+                    y: 0,
+                    opacity: 1,
+                    delay: i * 0.3,
+                    ease: 'power3.out'
+                });
+            });
+            
+            gsap.to('.legacy-quote', {
+                scrollTrigger: {
+                    trigger: '.legacy-quote',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1,
+                scale: 1,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            // Footer animations
+            gsap.to('.footer-logo', {
+                scrollTrigger: {
+                    trigger: '.footer-logo',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.to('.footer-quote', {
+                scrollTrigger: {
+                    trigger: '.footer-quote',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.utils.toArray('.social-icon').forEach((icon, i) => {
+                gsap.to(icon, {
+                    scrollTrigger: {
+                        trigger: icon,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    duration: 0.8,
+                    scale: 1,
+                    delay: i * 0.1,
+                    ease: 'back.out(1.7)'
+                });
+            });
+            
+            gsap.to('.copyright', {
+                scrollTrigger: {
+                    trigger: '.copyright',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: 'power3.out'
+            });
+            
+            // Background animation for hero section
+            gsap.to('.hero', {
+                duration: 30,
+                backgroundPosition: '50% 100%',
+                repeat: -1,
+                yoyo: true,
+                ease: 'none'
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Scroll down button functionality
+        document.querySelector('.scroll-down').addEventListener('click', function() {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
